@@ -39,6 +39,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version> <!-- Add a specific version number -->
             <scope>runtime</scope>
         </dependency>
 
