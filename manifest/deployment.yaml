@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mariemproject-deployment
+  name: ski-station-deployment
 spec:
+  replicas: 2 # Number of pods
   selector:
     matchLabels:
-      app: mariemproject
+      app: ski-station
   template:
     metadata:
       labels:
-        app: mariemproject
+        app: ski-station
     spec:
       containers:
-        - name: mariemproject
-          image: mariemcheikhbrahim/mariemproject:latest
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
-          ports:
-            - containerPort: 8080
+      - name: ski-station
+        image: mariemcheikhbrahim/mariemproject:latest # Docker image pushed to Docker Hub
+        ports:
+        - containerPort: 8080 # Port exposed by the application inside the container
+        env:
+        - name: JAVA_OPTS
+          value: "-Xmx512m -Xms256m" # Optional Java options
