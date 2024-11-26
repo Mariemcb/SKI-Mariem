@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariemproject-deployment
+spec:
+  selector:
+    matchLabels:
+      app: mariemproject
+  template:
+    metadata:
+      labels:
+        app: mariemproject
+    spec:
+      containers:
+        - name: mariemproject
+          image: mariemcheikhbrahim/mariemproject:latest
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
